@@ -2,7 +2,7 @@
 %define	name		perl-%{module}
 %define	modprefix	YAML
 
-%define version		0.94
+%define version		0.95
 
 %define	rel		1
 %define	release		%mkrel 1
@@ -49,5 +49,3 @@ rm -rf %{buildroot}
 %{perl_vendorarch}/JSON
 %{perl_vendorarch}/%{modprefix}
 %{perl_vendorarch}/auto/%{modprefix}
-
-
