@@ -2,7 +2,7 @@
 %define	name		perl-%{module}
 %define	modprefix	YAML
 
-%define version		0.95
+%define version		0.96
 
 %define	rel		1
 %define	release		%mkrel 1
