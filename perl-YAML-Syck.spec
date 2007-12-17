@@ -16,7 +16,6 @@ Group:		Development/Perl
 Source:		http://www.cpan.org/modules/by-module/%{modprefix}/%{module}-%{version}.tar.bz2
 Url:		http://search.cpan.org/dist/%{module}
 Buildrequires:	perl-devel >= 5.3
-BuildRoot: 	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
 This module provides a Perl interface to the libsyck data
