@@ -2,10 +2,8 @@
 %define	name		perl-%{module}
 %define	modprefix	YAML
 
-%define version		1.00
-
-%define	rel		2
-%define	release		%mkrel %rel
+%define version		1.01
+%define	release		%mkrel 1
 
 Name: 		%{name}
 Version:	%{version}
@@ -13,10 +11,10 @@ Release:	%{release}
 Summary:	Fast, lightweight YAML loader and dumper
 License:	MIT
 Group:		Development/Perl
-Source:		http://www.cpan.org/modules/by-module/%{modprefix}/%{module}-%{version}.tar.bz2
 Url:		http://search.cpan.org/dist/%{module}
+Source:		http://www.cpan.org/modules/by-module/%{modprefix}/%{module}-%{version}.tar.bz2
 Buildrequires:	perl-devel >= 5.3
-BuildRoot: 	%{_tmppath}/%{name}-%{version}-buildroot
+BuildRoot: 	%{_tmppath}/%{name}-%{version}
 
 %description
 This module provides a Perl interface to the libsyck data
