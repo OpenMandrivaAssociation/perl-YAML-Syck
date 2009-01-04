@@ -1,9 +1,8 @@
 %define	module		YAML-Syck
 %define	name		perl-%{module}
 %define	modprefix	YAML
-
 %define version		1.05
-%define	release		%mkrel 2
+%define	release		%mkrel 3
 
 Name: 		%{name}
 Version:	%{version}
@@ -14,6 +13,7 @@ Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{module}
 Source:		http://www.cpan.org/modules/by-module/%{modprefix}/%{module}-%{version}.tar.bz2
 Buildrequires:	perl-devel >= 5.3
+Provides:   perl-YAML-parser
 BuildRoot: 	%{_tmppath}/%{name}-%{version}
 
 %description
