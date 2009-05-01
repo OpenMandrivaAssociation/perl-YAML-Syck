@@ -1,8 +1,10 @@
 %define	module		YAML-Syck
 %define	name		perl-%{module}
 %define	modprefix	YAML
-%define version		1.05
-%define	release		%mkrel 3
+%define version		1.07
+%define	release		%mkrel 1
+
+%define Werror_cflags %nil
 
 Name: 		%{name}
 Version:	%{version}
@@ -11,8 +13,7 @@ Summary:	Fast, lightweight YAML loader and dumper
 License:	MIT
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{module}
-Source:		http://www.cpan.org/modules/by-module/%{modprefix}/%{module}-%{version}.tar.bz2
-Buildrequires:	perl-devel >= 5.3
+Source:		http://www.cpan.org/modules/by-module/%{modprefix}/%{module}-%{version}.tar.gz
 Provides:   perl-YAML-parser
 BuildRoot: 	%{_tmppath}/%{name}-%{version}
 
@@ -22,13 +23,12 @@ serialization library. It exports the Dump and Load functions for
 converting Perl data structures to YAML strings, and the other way
 around.
 
-
 %prep
 %setup -q -n %{module}-%{version}
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor </dev/null
-%make CFLAGS="%{optflags}"
+%{__perl} Makefile.PL INSTALLDIRS=vendor
+%make OPTIMIZE="%{optflags}"
 
 %check
 %{__make} test
