@@ -15,6 +15,7 @@ Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{module}
 Source:		http://www.cpan.org/modules/by-module/%{modprefix}/%{module}-%{version}.tar.gz
 Provides:   perl-YAML-parser
+Requires:   perl-devel
 BuildRoot: 	%{_tmppath}/%{name}-%{version}
 
 %description
