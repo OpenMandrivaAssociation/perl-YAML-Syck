@@ -1,22 +1,21 @@
-%define	module		YAML-Syck
-%define	name		perl-%{module}
-%define	modprefix	YAML
-%define version		1.07
-%define	release		%mkrel 1
+%define	upstream_name    YAML-Syck
+%define upstream_version 1.07
 
 %define Werror_cflags %nil
 
-Name: 		%{name}
-Version:	%{version}
-Release:	%{release}
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
+
 Summary:	Fast, lightweight YAML loader and dumper
 License:	MIT
 Group:		Development/Perl
-Url:		http://search.cpan.org/dist/%{module}
-Source:		http://www.cpan.org/modules/by-module/%{modprefix}/%{module}-%{version}.tar.gz
-Provides:   perl-YAML-parser
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/YAML/%{upstream_name}-%{upstream_version}.tar.gz
+
 BuildRequires:   perl-devel
-BuildRoot: 	%{_tmppath}/%{name}-%{version}
+BuildRoot: 	%{_tmppath}/%{name}-%{version}-%{relase}
+Provides:   perl-YAML-parser
 
 %description
 This module provides a Perl interface to the libsyck data
@@ -25,7 +24,7 @@ converting Perl data structures to YAML strings, and the other way
 around.
 
 %prep
-%setup -q -n %{module}-%{version}
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
@@ -46,5 +45,5 @@ rm -rf %{buildroot}
 %doc Changes COPYING README
 %{_mandir}/*/*
 %{perl_vendorarch}/JSON
-%{perl_vendorarch}/%{modprefix}
-%{perl_vendorarch}/auto/%{modprefix}
+%{perl_vendorarch}/YAML
+%{perl_vendorarch}/auto/YAML
