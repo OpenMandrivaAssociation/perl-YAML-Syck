@@ -1,11 +1,11 @@
 %define	upstream_name    YAML-Syck
-%define upstream_version 1.10
+%define upstream_version 1.12
 
 %define Werror_cflags %nil
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 3
+Release:    %mkrel 1
 
 Summary:	Fast, lightweight YAML loader and dumper
 License:	MIT
