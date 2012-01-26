@@ -12,6 +12,7 @@ License:	MIT
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{module}
 Source0:	http://www.cpan.org/modules/by-module/YAML/%{module}-%{upstream_version}.tar.gz
+Patch0:		YAML-Syck-1.19-string-format-fix.patch
 
 BuildRequires:	perl-devel
 Provides:	perl-YAML-parser
@@ -24,6 +25,7 @@ around.
 
 %prep
 %setup -q -n %{module}-%{upstream_version}
+%patch0 -p1 -b .str_fmt~
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
