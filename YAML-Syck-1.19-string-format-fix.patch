@@ -1,0 +1,11 @@
+--- YAML-Syck-1.19/perl_common.h~	2012-01-26 21:27:07.485093187 +0100
++++ YAML-Syck-1.19/perl_common.h	2012-01-26 21:27:11.221095389 +0100
+@@ -72,7 +72,7 @@ SyckNode * perl_syck_bad_anchor_handler(
+ }
+ 
+ void perl_syck_error_handler(SyckParser *p, char *msg) {
+-    croak(form( "%s parser (line %d, column %ld): %s",
++    croak("%s", form( "%s parser (line %d, column %ld): %s",
+         "Syck",
+         p->linect + 1,
+         p->cursor - p->lineptr,
