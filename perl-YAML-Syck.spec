@@ -1,17 +1,15 @@
-%define	module	YAML-Syck
-%define upstream_version 1.19
+%define	modname	YAML-Syck
+%define	modver	1.19
 
-%define Werror_cflags %nil
-
-Name:		perl-%{module}
-Version:	%perl_convert_version %{upstream_version}
-Release:	3
+Name:		perl-%{modname}
+Version:	%{perl_convert_version %{modver}}
+Release:	4
 
 Summary:	Fast, lightweight YAML loader and dumper
 License:	MIT
 Group:		Development/Perl
-Url:		http://search.cpan.org/dist/%{module}
-Source0:	http://www.cpan.org/modules/by-module/YAML/%{module}-%{upstream_version}.tar.gz
+Url:		http://search.cpan.org/dist/%{modname}
+Source0:	http://www.cpan.org/modules/by-module/YAML/%{modname}-%{modver}.tar.gz
 Patch0:		YAML-Syck-1.19-string-format-fix.patch
 
 BuildRequires:	perl-devel
@@ -24,15 +22,15 @@ converting Perl data structures to YAML strings, and the other way
 around.
 
 %prep
-%setup -q -n %{module}-%{upstream_version}
+%setup -q -n %{modname}-%{modver}
 %patch0 -p1 -b .str_fmt~
 
 %build
-%__perl Makefile.PL INSTALLDIRS=vendor
+perl Makefile.PL INSTALLDIRS=vendor
 %make OPTIMIZE="%{optflags}"
 
 %check
-%__make test
+%make test
 
 %install
 %makeinstall_std
@@ -44,9 +42,12 @@ around.
 %{perl_vendorarch}/YAML
 %{perl_vendorarch}/auto/YAML
 
-
 %changelog
-* Thu Jan 26 2012 Per Ã˜yvind Karlsen <peroyvind@mandriva.org> 1.190.0-2
+* Fri Dec 28 2012 Per Øyvind Karlsen <peroyvind@mandriva.org> 1.190.0-4
+- rebuild against perl-5.16.2
+- cleanups
+
+* Thu Jan 26 2012 Per Øyvind Karlsen <peroyvind@mandriva.org> 1.190.0-2
 + Revision: 769198
 - string format fix
 - cleanups
