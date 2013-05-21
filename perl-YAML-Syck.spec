@@ -3,7 +3,7 @@
 
 Name:		perl-%{modname}
 Version:	%{perl_convert_version %{modver}}
-Release:	4
+Release:	5
 
 Summary:	Fast, lightweight YAML loader and dumper
 License:	MIT
