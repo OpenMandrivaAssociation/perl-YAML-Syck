@@ -1,17 +1,22 @@
-%define	modname	YAML-Syck
-%define	modver	1.19
+%define	upstream_name    YAML-Syck
+%define upstream_version 1.27
 
-Summary:	Fast, lightweight YAML loader and dumper
-Name:		perl-%{modname}
-Version:	%{perl_convert_version %{modver}}
-Release:	9
-License:	MIT
-Group:		Development/Perl
-Url:		http://search.cpan.org/dist/%{modname}
-Source0:	http://www.cpan.org/modules/by-module/YAML/%{modname}-%{modver}.tar.gz
-Patch0:		YAML-Syck-1.19-string-format-fix.patch
-BuildRequires:	perl-devel
-Provides:	perl-YAML-parser
+%define Werror_cflags %{nil}
+
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    1
+
+Summary:    Fast, lightweight YAML loader and dumper
+
+License:    MIT
+Group:      Development/Perl
+Url:        http://search.cpan.org/dist/%{upstream_name}
+Source0:    http://www.cpan.org/modules/by-module/YAML/%{upstream_name}-%{upstream_version}.tar.gz
+
+BuildRequires: perl(ExtUtils::MakeMaker) >= 6.590.0
+BuildRequires: perl-devel
+Provides:   perl-YAML-parser
 
 %description
 This module provides a Perl interface to the libsyck data
@@ -20,11 +25,10 @@ converting Perl data structures to YAML strings, and the other way
 around.
 
 %prep
-%setup -qn %{modname}-%{modver}
-%apply_patches
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-perl Makefile.PL INSTALLDIRS=vendor
+%__perl Makefile.PL INSTALLDIRS=vendor
 %make OPTIMIZE="%{optflags}"
 
 %check
@@ -34,9 +38,9 @@ perl Makefile.PL INSTALLDIRS=vendor
 %makeinstall_std
 
 %files
-%doc Changes COPYING README
+%doc COMPATIBILITY COPYING Changes META.yml MYMETA.yml README
+%{_mandir}/*/*
 %{perl_vendorarch}/JSON
 %{perl_vendorarch}/YAML
 %{perl_vendorarch}/auto/YAML
-%{_mandir}/man3/*
 
