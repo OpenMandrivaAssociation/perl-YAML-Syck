@@ -1,11 +1,11 @@
 %define	upstream_name    YAML-Syck
-%define upstream_version 1.27
+%define upstream_version 1.28
 
 %define Werror_cflags %{nil}
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
-Release:    6
+Release:    1
 
 Summary:    Fast, lightweight YAML loader and dumper
 
@@ -28,7 +28,7 @@ around.
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-%__perl Makefile.PL INSTALLDIRS=vendor
+perl Makefile.PL INSTALLDIRS=vendor
 %make OPTIMIZE="%{optflags}"
 
 %check
@@ -43,4 +43,3 @@ around.
 %{perl_vendorarch}/JSON
 %{perl_vendorarch}/YAML
 %{perl_vendorarch}/auto/YAML
-

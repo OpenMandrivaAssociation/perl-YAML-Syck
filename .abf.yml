@@ -1,4 +1,5 @@
 removed_sources:
   YAML-Syck-1.19.tar.gz: c8017134b742c8e93a5bf2cd23263ec9d6af54d4
-sources:
   YAML-Syck-1.27.tar.gz: 466ee625bb329836729aac417aead9fa5f7ac5c5
+sources:
+  YAML-Syck-1.28.tar.gz: 13b5619c4448011c2808c983c7acce4089da797c
