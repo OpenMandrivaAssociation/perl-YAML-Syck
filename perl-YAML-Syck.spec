@@ -1,5 +1,5 @@
 %define	upstream_name    YAML-Syck
-%define upstream_version 1.28
+%define upstream_version 1.29
 
 %define Werror_cflags %{nil}
 
