@@ -15,6 +15,8 @@ Url:        http://search.cpan.org/dist/%{upstream_name}
 Source0:    http://www.cpan.org/modules/by-module/YAML/%{upstream_name}-%{upstream_version}.tar.gz
 
 BuildRequires: perl(ExtUtils::MakeMaker) >= 6.590.0
+BuildRequires: perl(Storable)
+BuildRequires: perl(Test)
 BuildRequires: perl-devel
 Provides:   perl-YAML-parser
 
