@@ -18,6 +18,7 @@ BuildRequires: perl(ExtUtils::MakeMaker) >= 6.590.0
 BuildRequires: perl(Storable)
 BuildRequires: perl(Test)
 BuildRequires: perl-devel
+BuildRequires:	perl(Test::More)
 Provides:   perl-YAML-parser
 
 %description
