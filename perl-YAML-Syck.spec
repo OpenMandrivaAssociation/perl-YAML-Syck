@@ -4,7 +4,7 @@
 
 Name:       perl-%{upstream_name}
 Version:    1.34
-Release:    1
+Release:    2
 Summary:    Fast, lightweight YAML loader and dumper
 License:    MIT
 Group:      Development/Perl
