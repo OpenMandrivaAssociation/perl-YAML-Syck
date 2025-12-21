@@ -11,6 +11,7 @@ Group:      Development/Perl
 Url:        https://metacpan.org/dist/%{upstream_name}
 Source0:    https://cpan.metacpan.org/modules/by-module/YAML/%{upstream_name}-%{version}.tar.gz
 
+BuildRequires:	make
 BuildRequires: perl(ExtUtils::MakeMaker) >= 6.590.0
 BuildRequires: perl(Storable)
 BuildRequires: perl(Test)
